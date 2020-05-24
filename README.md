@@ -1,1 +1,1 @@
-This repository contains sample code for learning purpose published on Coding Reflections website and YoutTube Channel.
+This repository contains sample code for learning purpose published on Coding Reflections website and YouTube Channel.
