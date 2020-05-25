@@ -1,5 +1,7 @@
 <?php
 
+// send a curl get request to get the html input
+
 $ch = curl_init();
 
 curl_setopt($ch, CURLOPT_URL, "https://codingreflections.com/wordpress-programming-languages");
