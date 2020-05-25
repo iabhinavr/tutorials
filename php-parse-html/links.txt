@@ -1,0 +1,8 @@
+https://trends.builtwith.com/framework/PHP
+https://www.php.net/
+https://www.mysql.com/
+https://www.quora.com/What-is-WordPress-How-does-it-work-2
+https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/What_is_CSS
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript
+https://jquery.com/
+https://reactjs.org/
