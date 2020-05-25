@@ -15,7 +15,7 @@
     /*
     how it works:
     -------------
-    create function to check scroll postion on each scroll event,
+    create function to check scroll position on each scroll event,
     compare curScroll and prevScroll values to find the scroll direction
     scroll up - 1, scroll down - 2, initial - 0
 
