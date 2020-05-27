@@ -7,11 +7,15 @@ $data_array = array(
 );
 
 $data = http_build_query($data_array);
+$header = array(
+    'Authorization: Basic YWxhZGRpbjpvcGVuc2VzYW1l'
+);
 
 $ch = curl_init();
 
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
