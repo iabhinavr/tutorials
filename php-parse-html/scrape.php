@@ -42,7 +42,7 @@ foreach($links as $link) {
     $link_href = $link->getAttribute('href');
     echo $link_text . ' - Link: ' . $link_href;
 
-    fwrite($fh, $link->getAttribute('href'). "\n");
+    fwrite($fh, $link_text . ' - Link: ' . $link_href . "\n");
 }
 
 fclose($fh);
