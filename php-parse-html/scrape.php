@@ -35,16 +35,15 @@ $article = $articles->item(0);
 
 $links = $article->getElementsByTagName('a');
 
-foreach($links as $link) {
-    echo $link->textContent . ' - Link: ' . $link->getAttribute('href');
-}
+$fh = fopen("links.txt", "w");
 
-if(file_exists('links.txt')) {
-    file_put_contents("links.txt", "");
-}
-$fh = fopen("links.txt", "a");
 foreach($links as $link) {
+    $link_text = $link->textContent;
+    $link_href = $link->getAttribute('href');
+    echo $link_text . ' - Link: ' . $link_href;
+
     fwrite($fh, $link->getAttribute('href'). "\n");
 }
+
 fclose($fh);
 
