@@ -15,6 +15,7 @@
     /*
     how it works:
     -------------
+    create a scroll event listener
     create function to check scroll position on each scroll event,
     compare curScroll and prevScroll values to find the scroll direction
     scroll up - 1, scroll down - 2, initial - 0
@@ -41,7 +42,7 @@
             // scrolled down
             curDirection = 2;
         }
-        else if (curScroll < prevScroll) {
+        else {
             //scrolled up
             curDirection = 1;
         }
