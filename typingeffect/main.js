@@ -65,7 +65,6 @@
     var hide = function() {
 
         if(i >= 0 ) {
-            //console.log(i + ' h- ');
             t[i].classList.add('hide');
             i--;
         }
