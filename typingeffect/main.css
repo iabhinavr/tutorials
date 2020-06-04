@@ -1,0 +1,72 @@
+body {
+    font-size: 60px;
+    font-family: "League Spartan";
+}
+
+@keyframes blink1 {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes blink2 {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.blink1 {
+    animation: blink1 4s infinite step-end;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.blink2 {
+    animation: blink2 2s infinite step-end;
+    display: inline-block;
+    overflow: hidden;
+    animation-delay: 2s;
+}
+
+.typingeffect {
+    display: none;
+}
+
+.typingeffect span.hide {
+    display: none;
+}
+.typingeffect span {
+    color: #252525;
+}
+.typingeffect:first-child span:nth-child(n+5):nth-child(-n+13) {
+    color: #4361ee;
+}
+.typingeffect:first-child span:last-child {
+    color: #f9cc16;
+}
+
+.typingeffect:nth-child(2) span:nth-child(n+2):nth-child(-n+12) {
+    color: #f9cc16;
+}
+.typingeffect:nth-child(2) span:last-child {
+    color: #4361ee;
+}
