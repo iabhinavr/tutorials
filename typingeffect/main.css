@@ -60,13 +60,7 @@ body {
 .typingeffect:first-child span:nth-child(n+5):nth-child(-n+13) {
     color: #4361ee;
 }
-.typingeffect:first-child span:last-child {
-    color: #f9cc16;
-}
 
 .typingeffect:nth-child(2) span:nth-child(n+2):nth-child(-n+12) {
     color: #f9cc16;
-}
-.typingeffect:nth-child(2) span:last-child {
-    color: #4361ee;
 }
