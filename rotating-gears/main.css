@@ -1,0 +1,40 @@
+.gears {
+    position: relative;
+}
+
+.gear-large,
+.gear-small {
+    position: absolute;
+}
+
+.gear-small {
+    left: 720px;
+    transform: rotate(0deg);
+    top: 150px;
+}
+
+@keyframes rotate-clockwise {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate-anticlockwise {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.gear-large {
+    animation: rotate-clockwise 4s linear infinite;
+}
+
+.gear-small {
+    animation: rotate-anticlockwise 2s linear infinite;
+}

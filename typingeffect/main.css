@@ -1,9 +1,11 @@
 body {
     font-size: 60px;
-    font-family: "League Spartan";
+    font-family: "Libre Baskerville";
+    margin: 0;
+    padding: 0;
 }
 
-@keyframes blink1 {
+@keyframes blink {
     0% {
         opacity: 0;
     }
@@ -14,53 +16,36 @@ body {
         opacity: 0;
     }
 }
-
-@keyframes blink2 {
-    0% {
-        opacity: 0;
-    }
-    25% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-.container {
+.page-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background: #252525;
 }
-
-.blink1 {
-    animation: blink1 4s infinite step-end;
-    display: inline-block;
-    overflow: hidden;
-}
-
-.blink2 {
-    animation: blink2 2s infinite step-end;
-    display: inline-block;
-    overflow: hidden;
-    animation-delay: 2s;
+.te-container {
+    display: block;
+    position: relative;
+    width: 60%;
 }
 
 .typingeffect {
-    display: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    text-align: left;
 }
-
+.cursor-blinking {
+    position:fixed;
+    animation: blink 1s infinite;
+    font-family: "Libre Baskerville", serif;
+    color: #fff;
+}
 .typingeffect span.hide {
-    display: none;
+    opacity: 0;
 }
 .typingeffect span {
-    color: #252525;
-}
-.typingeffect:first-child span:nth-child(n+5):nth-child(-n+13) {
-    color: #4361ee;
-}
-
-.typingeffect:nth-child(2) span:nth-child(n+2):nth-child(-n+12) {
-    color: #f9cc16;
+    color: #fff;
 }
