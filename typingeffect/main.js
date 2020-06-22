@@ -1,70 +1,59 @@
 (function(){
 
-    var i = 0;
-    var s, h;
-
     var te_container = document.querySelector('.te-container');
-    var ts = document.querySelectorAll('.typingeffect');
-    var ts_length = ts.length;
+    var text_list = document.querySelectorAll('.typingeffect');
+    var tl_length = text_list.length;
 
-    if(!ts_length) {
+    if(!tl_length) {
         return;
     }
 
-    /*
-    split the text inside the class .typingeffect
-    put each letter into a span element
-    empty .typingeffect and insert the new span elements
-    */
+    var j = 0;
 
-    var ts_height = 0;
-
-    for(let g = 0; g < ts_length; g++) {
-        var string = ts[g].firstChild.textContent;
-        var strlen = string.length;
-    
-        var letters = [];
+    var sliceText = function() {
+        for ( j=0;j<tl_length;j++) {
+            text = text_list[j];
+            var string = text.textContent;
         
-        for(let k=0; k<strlen; k++) {
-            var letter = string.slice(k, k+1);
-            letters.push(letter);
-        }
-
-        if(ts[g].offsetHeight > ts_height) { 
-            ts_height = ts[g].offsetHeight;
-        }
+            var strlen = string.length;
+            var letters = [];
+            
+            for (let k=0; k<strlen; k++) {
+                var letter = string.slice(k, k+1);
+                letters.push(letter);
+            }
+            text.textContent = '';
     
-        ts[g].textContent = '';
-        letters.forEach(function(l){
-            var newSpan = document.createElement('span');
-            newSpan.textContent = l;
-            newSpan.classList.add('hide');
-            ts[g].insertBefore(newSpan, null);
-        });
+            letters.forEach(function(l, index) {
+                var newSpan = document.createElement('span');
+                newSpan.textContent = l;
+                if(index >= 3)
+                    newSpan.classList.add('hide');
+                text.insertBefore(newSpan, null);
+            });
+            text.style.opacity = 1;
+        }
+    };
 
-        ts[g].style.opacity = "1";
-    }
+    sliceText();
 
-    te_container.style.height = ts_height + 'px';
-    var cursor = document.createElement('span');
-    cursor.textContent = "|";
-    cursor.classList.add('cursor-blinking');
-    te_container.insertBefore(cursor, null);
+    j = 0;
+    text = text_list[j];
 
-    cursor = te_container.querySelector('.cursor-blinking');
+    var t = text.querySelectorAll('span'); 
+    var tlength = t.length;
+    var s,h;
+    var i = 3;
+    var cursor;
 
-    /*
-    to support multiple lines
-    var group represents a single line
-    */
+    var addCursor = function() {
+        cursor = document.createElement('span');
+        cursor.textContent = '|';
+        cursor.classList.add('cursor-blinking');
+        te_container.insertBefore(cursor, null);
+    };
 
-    var group = 0;
-    var t = ts[group].querySelectorAll('span');
-    var length = t.length;
-
-    /*
-    show each letter at intervals
-    */
+    addCursor();
 
     var showTimer = function() {
         s = setInterval(function(){
@@ -72,61 +61,50 @@
         }, 150);
     };
 
-    /*
-    start hiding each letter, once show() is finished
-    once hide() is finished, var group, i are reset, and the loop continues
-    */
-
     var hideTimer = function() {
         h = setInterval(function(){
             hide();
         }, 50);
     };
 
-    /*
-    initially, call showTimer()
-    */
-    
     showTimer();
-
     var show = function() {
-        
-        if(i < length ) {
+        if(i < tlength) {
             t[i].classList.remove('hide');
             var gbcr = t[i].getBoundingClientRect();
-            cursor.style.top = (gbcr.top - 10) + 'px';
-            cursor.style.left = (gbcr.right) + 'px';
+            cursor.style.top = gbcr.top + 'px';
+            cursor.style.left = gbcr.right + 'px';
             i++;
         }
         else {
-            i = length - 1;
+            i = tlength - 1;
             clearInterval(s);
             setTimeout(function(){
                 hideTimer();
-            }, 1000); 
+            }, 2000);
         }
     };
 
     var hide = function() {
-
-        if(i >= 0 ) {
+        if(i >= 3) {
             t[i].classList.add('hide');
             var gbcr = t[i].getBoundingClientRect();
-            cursor.style.top = (gbcr.top - 10) + 'px';
+            cursor.style.top = gbcr.top + 'px';
             cursor.style.left = (gbcr.right - gbcr.width) + 'px';
             i--;
         }
         else {
-            i = 0;
+            i = 3;
             clearInterval(h);
-            group++;
-            if(group == ts_length) {
-                group = 0;
+            j++;
+            if(j == tl_length) {
+                j = 0;
             }
-            t = ts[group].querySelectorAll('span');
-            length = t.length;
+            text = text_list[j];
+            t = text.querySelectorAll('span');
+            tlength = t.length;
             showTimer();
         }
-    }
+    };
 
 })();

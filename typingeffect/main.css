@@ -1,51 +1,53 @@
 body {
     font-size: 60px;
-    font-family: "Libre Baskerville";
     margin: 0;
     padding: 0;
 }
 
-@keyframes blink {
+.page-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #252525;
+}
+.te-container {
+    position: relative;
+    width: 60%;
+    height: 69px;
+}
+.typingeffect {
+    color: #fff;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right:0;
+}
+
+.typingeffect span.hide {
+    opacity: 0;
+}
+
+@keyframes blinking {
     0% {
         opacity: 0;
     }
-    25% {
+    50% {
         opacity: 1;
     }
     100% {
         opacity: 0;
     }
 }
-.page-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #252525;
-}
-.te-container {
-    display: block;
-    position: relative;
-    width: 60%;
-}
-
-.typingeffect {
-    opacity: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    position: absolute;
-    text-align: left;
-}
 .cursor-blinking {
-    position:fixed;
-    animation: blink 1s infinite;
-    font-family: "Libre Baskerville", serif;
-    color: #fff;
+    color: white;
+    animation: blinking 1s infinite;
+    position: fixed;
 }
-.typingeffect span.hide {
-    opacity: 0;
-}
-.typingeffect span {
-    color: #fff;
+.typingeffect:first-child span:nth-child(n+4):nth-child(-n+19),
+.typingeffect:nth-child(2) span:nth-child(n+4):nth-child(-n+13),
+.typingeffect:nth-child(3) span:nth-child(n+4):nth-child(-n+18) {
+    color: yellow;
+    border-bottom: 1px dashed rgb(250, 250, 151);
 }
